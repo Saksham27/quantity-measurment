@@ -12,6 +12,7 @@ namespace QuantityMeasurment
 
     /// <summary>
     /// comparison class containing different comparisons
+    /// Method : <see cref="CompareInchWithFeet(double, double)"/>
     /// </summary>
     public class Comparison
     {
