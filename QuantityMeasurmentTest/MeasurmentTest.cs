@@ -13,8 +13,11 @@ namespace QuantityMeasurmentTest
     /// <summary>
     /// class containing all measurement tests
     /// property : <see cref="compare"/>
-    /// Test 1 : <see cref="GivenInchAndFeet_IfEqual_ShouldReturnTrue"/>
-    /// Test 2 : <see cref="GivenInchAndFeet_IfNotEqual_ShouldReturnFalse"/>
+    /// Test 1.1 : <see cref="GivenInchAndFeet_IfEqual_ShouldReturnTrue"/>
+    /// Test : <see cref="GivenInchAndFeet_IfNotEqual_ShouldReturnFalse"/>
+    /// Test 1.2 : <see cref="GivenFeetObject_CheckForNull_ShouldReturnBool"/>
+    /// Test 1.3 : <see cref="GivenFeetObject_CheckForReference_ShouldReturnBool"/>
+    /// Test 1.4 : <see cref="GivenFeetObject_CheckForType_ShouldReturnBool"/>
     /// </summary>
     public class MeasurmentTest
     {
@@ -77,7 +80,7 @@ namespace QuantityMeasurmentTest
         } //// end : public void GivenFeetObject_CheckForNull_ShouldReturnBool()
 
         /// <summary>
-        /// Test : if given feet object if checing for null the should return bool
+        /// Test : if given feet object if checing for reference the should return bool
         /// </summary>
         [Test]
         public void GivenFeetObject_CheckForReference_ShouldReturnBool()
@@ -97,5 +100,27 @@ namespace QuantityMeasurmentTest
                 Console.WriteLine(exception.Message);
             }
         } //// end : public void GivenFeetObject_CheckForReference_ShouldReturnBool()
+
+        /// <summary>
+        /// Test : if given feet object if checing for type the should return bool
+        /// </summary>
+        [Test]
+        public void GivenFeetObject_CheckForType_ShouldReturnBool()
+        {
+            try
+            {
+                // crating oject for FeetMeasurment class
+                FeetMesurment feet = new FeetMesurment();
+
+                // creating oject for object class
+                object obj = new object();
+
+                Assert.IsFalse(feet.Equals(obj));
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
+        } //// end : public void GivenFeetObject_CheckForType_ShouldReturnBool()
     } //// end : public class MeasurmentTest
 } //// end : namespace QuantityMeasurmentTest
