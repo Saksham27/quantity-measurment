@@ -21,7 +21,11 @@ namespace QuantityMeasurment
                 {
                     return false;
                 }
-                if (inputObject == this)
+                if (!(inputObject == this))
+                {
+                    return false;
+                }
+                if(!(inputObject.GetType() == this.GetType()))
                 {
                     return false;
                 }
