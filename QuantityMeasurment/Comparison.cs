@@ -4,7 +4,7 @@
 // </copyright>
 // <author> Saksham Singh </author>
 //-----------------------------------------------------------------------
-namespace QuantityMeasurment
+namespace QuantityMeasurement
 {
     using System;
     using System.Collections.Generic;

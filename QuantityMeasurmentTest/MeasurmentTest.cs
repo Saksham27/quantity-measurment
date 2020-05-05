@@ -4,11 +4,11 @@
 // </copyright>
 // <author> Saksham Singh </author>
 //-----------------------------------------------------------------------
-namespace QuantityMeasurmentTest
+namespace QuantityMeasurementTest
 {
     using System;
     using NUnit.Framework;
-    using QuantityMeasurment;
+    using QuantityMeasurement;
 
     /// <summary>
     /// class containing all measurement tests
@@ -20,7 +20,7 @@ namespace QuantityMeasurmentTest
     /// Test 1.4 : <see cref="GivenFeetObject_CheckForType_ShouldReturnBool"/>
     /// Test 1.5 : <see cref="GivenFeetObject_CheckEqualityOfValues_ReturnBool"/>
     /// </summary>
-    public class MeasurmentTest
+    public class MeasurementTest
     {
         /// <summary>
         /// creating object of compare class
@@ -71,7 +71,7 @@ namespace QuantityMeasurmentTest
         {
             try
             {
-                FeetMesurment feet = new FeetMesurment();
+                FeetMeasurement feet = new FeetMeasurement();
                 Assert.IsFalse(feet.Equals(null));
             }
             catch (Exception exception)
@@ -89,10 +89,10 @@ namespace QuantityMeasurmentTest
             try
             {
                 // crating oject for FeetMeasurment class
-                FeetMesurment feet = new FeetMesurment();
+                FeetMeasurement feet = new FeetMeasurement();
 
                 // creating another object for FeetMeasurment class
-                FeetMesurment secondFeet = new FeetMesurment();
+                FeetMeasurement secondFeet = new FeetMeasurement();
 
                 Assert.IsFalse(feet.Equals(secondFeet));
             }
@@ -111,7 +111,7 @@ namespace QuantityMeasurmentTest
             try
             {
                 // crating oject for FeetMeasurment class
-                FeetMesurment feet = new FeetMesurment();
+                FeetMeasurement feet = new FeetMeasurement();
 
                 // creating oject for object class
                 object obj = new object();
@@ -133,7 +133,7 @@ namespace QuantityMeasurmentTest
             try
             {
                 // create object for Feet class
-                FeetMesurment feet = new FeetMesurment();
+                FeetMeasurement feet = new FeetMeasurement();
                 // set values in feet object
                 feet.Feet = 20.5;
                 Assert.IsTrue(feet.Equals(feet));
@@ -143,5 +143,22 @@ namespace QuantityMeasurmentTest
                 Console.WriteLine(exception.Message);
             }
         } //// end : public void GivenFeetObject_CheckEqualityOfValues_ReturnBool()
+
+        /// <summary>
+        /// Test : if given inch object if checing for null the should return bool
+        /// </summary>
+        [Test]
+        public void GivenInchObject_CheckForNull_ShouldReturnBool()
+        {
+            try
+            {
+                InchMeasurement inch = new InchMeasurement();
+                Assert.IsFalse(inch.Equals(null));
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
+        } //// end : public void GivenInchObject_CheckForNull_ShouldReturnBool()
     } //// end : public class MeasurmentTest
 } //// end : namespace QuantityMeasurmentTest
