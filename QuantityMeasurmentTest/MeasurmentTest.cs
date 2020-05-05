@@ -182,5 +182,27 @@ namespace QuantityMeasurementTest
                 Console.WriteLine(exception.Message);
             }
         } //// end : public void GivenInchObject_CheckForReference_ShouldReturnBool()
+
+        /// <summary>
+        /// Test : if given inch object if checing for type the should return bool
+        /// </summary>
+        [Test]
+        public void GivenInchObject_CheckForType_ShouldReturnBool()
+        {
+            try
+            {
+                // crating oject for FeetMeasurment class
+                InchMeasurement inch = new InchMeasurement();
+
+                // creating oject for object class
+                object obj = new object();
+
+                Assert.IsFalse(inch.Equals(obj));
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
+        } //// end : public void GivenInchObject_CheckForType_ShouldReturnBool()
     } //// end : public class MeasurmentTest
 } //// end : namespace QuantityMeasurmentTest
