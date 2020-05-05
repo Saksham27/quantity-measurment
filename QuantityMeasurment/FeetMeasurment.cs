@@ -21,15 +21,21 @@ namespace QuantityMeasurment
                 {
                     return false;
                 }
+
+                // refrence check
                 if (!(inputObject == this))
                 {
                     return false;
                 }
+
+                // tpye check
                 if(!(inputObject.GetType() == this.GetType()))
                 {
                     return false;
                 }
-                return true;
+
+                // value equality check
+                return (((FeetMesurment)inputObject).Feet == this.Feet);
             }
             catch (Exception exception)
             {
