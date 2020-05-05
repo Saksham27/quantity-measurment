@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="Measurment.cs" company="BridgeLabz Solutions LLP">
+// <copyright file="Measurement.cs" company="BridgeLabz Solutions LLP">
 //     Copyright (c) Company. All rights reserved.
 // </copyright>
 // <author> Saksham Singh </author>
@@ -12,7 +12,7 @@ namespace QuantityMeasurement
     /// class containing main method
     /// Method : <see cref="Main(string[])"/>
     /// </summary>
-    public class Measurment
+    public class Measurement
     {
         /// <summary>
         /// main method
