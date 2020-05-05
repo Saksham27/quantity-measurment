@@ -160,5 +160,27 @@ namespace QuantityMeasurementTest
                 Console.WriteLine(exception.Message);
             }
         } //// end : public void GivenInchObject_CheckForNull_ShouldReturnBool()
+
+        /// <summary>
+        /// Test : if given inch object if checing for reference the should return bool
+        /// </summary>
+        [Test]
+        public void GivenInchObject_CheckForReference_ShouldReturnBool()
+        {
+            try
+            {
+                // crating oject for FeetMeasurment class
+                InchMeasurement inch = new InchMeasurement();
+
+                // creating another object for FeetMeasurment class
+                InchMeasurement secondInch = new InchMeasurement();
+
+                Assert.IsFalse(inch.Equals(secondInch));
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
+        } //// end : public void GivenInchObject_CheckForReference_ShouldReturnBool()
     } //// end : public class MeasurmentTest
 } //// end : namespace QuantityMeasurmentTest
