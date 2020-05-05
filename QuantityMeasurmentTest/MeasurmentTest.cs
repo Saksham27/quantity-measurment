@@ -74,6 +74,28 @@ namespace QuantityMeasurmentTest
             {
                 Console.WriteLine(exception.Message);
             }
-        } //// end : public void GivenInchAndFeet_IfNotEqual_ShouldReturnFalse()
+        } //// end : public void GivenFeetObject_CheckForNull_ShouldReturnBool()
+
+        /// <summary>
+        /// Test : if given feet object if checing for null the should return bool
+        /// </summary>
+        [Test]
+        public void GivenFeetObject_CheckForReference_ShouldReturnBool()
+        {
+            try
+            {
+                // crating oject for FeetMeasurment class
+                FeetMesurment feet = new FeetMesurment();
+
+                // creating another object for FeetMeasurment class
+                FeetMesurment secondFeet = new FeetMesurment();
+
+                Assert.IsFalse(feet.Equals(secondFeet));
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
+        } //// end : public void GivenFeetObject_CheckForReference_ShouldReturnBool()
     } //// end : public class MeasurmentTest
 } //// end : namespace QuantityMeasurmentTest
