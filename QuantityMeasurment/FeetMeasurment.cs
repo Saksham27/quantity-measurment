@@ -21,6 +21,10 @@ namespace QuantityMeasurment
                 {
                     return false;
                 }
+                if (inputObject == this)
+                {
+                    return false;
+                }
                 return true;
             }
             catch (Exception exception)
