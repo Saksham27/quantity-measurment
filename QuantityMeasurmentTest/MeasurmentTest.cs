@@ -204,5 +204,26 @@ namespace QuantityMeasurementTest
                 Console.WriteLine(exception.Message);
             }
         } //// end : public void GivenInchObject_CheckForType_ShouldReturnBool()
+
+
+        /// <summary>
+        /// Test : if given feet object if checing for value equality the should return bool
+        /// </summary>
+        [Test]
+        public void GivenInchObject_CheckEqualityOfValues_ReturnBool()
+        {
+            try
+            {
+                // create object for Feet class
+                InchMeasurement inch = new InchMeasurement();
+                // set values in feet object
+                inch.Inch = 20.5;
+                Assert.IsTrue(inch.Equals(inch));
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
+        } //// end : public void GivenFeetObject_CheckEqualityOfValues_ReturnBool()
     } //// end : public class MeasurmentTest
 } //// end : namespace QuantityMeasurmentTest
