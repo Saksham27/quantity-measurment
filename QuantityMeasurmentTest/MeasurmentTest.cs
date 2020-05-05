@@ -18,6 +18,7 @@ namespace QuantityMeasurmentTest
     /// Test 1.2 : <see cref="GivenFeetObject_CheckForNull_ShouldReturnBool"/>
     /// Test 1.3 : <see cref="GivenFeetObject_CheckForReference_ShouldReturnBool"/>
     /// Test 1.4 : <see cref="GivenFeetObject_CheckForType_ShouldReturnBool"/>
+    /// Test 1.5 : <see cref="GivenFeetObject_CheckEqualityOfValues_ReturnBool"/>
     /// </summary>
     public class MeasurmentTest
     {
@@ -122,5 +123,25 @@ namespace QuantityMeasurmentTest
                 Console.WriteLine(exception.Message);
             }
         } //// end : public void GivenFeetObject_CheckForType_ShouldReturnBool()
+
+        /// <summary>
+        /// Test : if given feet object if checing for value equality the should return bool
+        /// </summary>
+        [Test]
+        public void GivenFeetObject_CheckEqualityOfValues_ReturnBool()
+        {
+            try
+            {
+                // create object for Feet class
+                FeetMesurment feet = new FeetMesurment();
+                // set values in feet object
+                feet.Feet = 20.5;
+                Assert.IsTrue(feet.Equals(feet));
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
+        } //// end : public void GivenFeetObject_CheckEqualityOfValues_ReturnBool()
     } //// end : public class MeasurmentTest
 } //// end : namespace QuantityMeasurmentTest
