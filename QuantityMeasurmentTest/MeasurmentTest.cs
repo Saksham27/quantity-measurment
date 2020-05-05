@@ -6,6 +6,7 @@
 //-----------------------------------------------------------------------
 namespace QuantityMeasurmentTest
 {
+    using System;
     using NUnit.Framework;
     using QuantityMeasurment;
 
@@ -28,9 +29,16 @@ namespace QuantityMeasurmentTest
         [Test]
         public void GivenInchAndFeet_IfEqual_ShouldReturnTrue()
         {
-            bool expected = true;
-            bool result = this.compare.CompareInchWithFeet(24, 2);
-            Assert.AreEqual(expected, result);
+            try
+            {
+                bool expected = true;
+                bool result = this.compare.CompareInchWithFeet(0, 0);
+                Assert.AreEqual(expected, result);
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
         } //// end : public void GivenInchAndFeet_IfEqual_ShouldReturnTrue()
 
         /// <summary>
@@ -39,9 +47,33 @@ namespace QuantityMeasurmentTest
         [Test]
         public void GivenInchAndFeet_IfNotEqual_ShouldReturnFalse()
         {
-            bool expected = false;
-            bool result = this.compare.CompareInchWithFeet(12, 2);
-            Assert.AreEqual(expected, result);
+            try
+            {
+                bool expected = false;
+                bool result = this.compare.CompareInchWithFeet(12, 2);
+                Assert.AreEqual(expected, result);
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
+        } //// end : public void GivenInchAndFeet_IfNotEqual_ShouldReturnFalse()
+
+        /// <summary>
+        /// Test : if given feet object if checing for null the should return bool
+        /// </summary>
+        [Test]
+        public void GivenFeetObject_CheckForNull_ShouldReturnBool()
+        {
+            try
+            {
+                FeetMesurment feet = new FeetMesurment();
+                Assert.IsFalse(feet.Equals(null));
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
         } //// end : public void GivenInchAndFeet_IfNotEqual_ShouldReturnFalse()
     } //// end : public class MeasurmentTest
 } //// end : namespace QuantityMeasurmentTest
