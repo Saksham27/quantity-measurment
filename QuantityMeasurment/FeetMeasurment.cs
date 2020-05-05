@@ -14,7 +14,19 @@ namespace QuantityMeasurment
         }
         public override bool Equals(object inputObject)
         {
-            
+            try
+            {
+                // cheking if inputObject is null, if yes then return false
+                if (inputObject == null)
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
         }
     }
 }
