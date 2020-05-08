@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace QuantityMeasurment
+namespace QuantityMeasurement
 {
     public class ConvertTo
     {

@@ -18,24 +18,26 @@ namespace QuantityMeasurement
     /// </summary>
     public class Measure
     {
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="Measure"/> class.
         /// </summary>
         /// <param name="inputInch"> input by user </param>
         public Measure(string unit, double length = 1)
         {
+            Units parsedUnit;
             this.Length = length;
-            if(unit.Trim().ToLower() == "inch" || unit.Trim().ToLower() == "feet")
+            if (Enum.TryParse(unit.Trim().ToLower(), true, out parsedUnit))
             {
-                this.Unit = unit;
-            }   
+                this.Unit = parsedUnit;
+            }
         } //// end : public FeetMeasurement(double inputFeet = 1)
 
         /// <summary>
         /// Gets or sets variable to store inch
         /// </summary>
         public double Length { get; set; }
-        public string Unit { get; set; }
+        public Units Unit { get; set; }
 
         /// <summary>
         /// override method Equals to check null, reference, type and value equality

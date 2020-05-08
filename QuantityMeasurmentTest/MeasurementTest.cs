@@ -199,6 +199,6 @@ namespace QuantityMeasurementTest
             Measure inchObject = new Measure("inch", 0);
             Measure feetObject = new Measure("feet", 0);
             Assert.IsTrue(compare.CompareLength(inchObject, feetObject));
-        } //// end : public void Given0Feet0Inch_ForCompare_shouldReturnTrue()
+        } //// end : public void Given0Feet0Inch_ForCompare_shouldReturnTrue()o
     } //// end : public class MeasurmentTest
 } //// end : namespace QuantityMeasurmentTest

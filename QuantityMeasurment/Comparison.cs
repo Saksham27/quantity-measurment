@@ -6,7 +6,7 @@
 //-----------------------------------------------------------------------
 namespace QuantityMeasurement
 {
-    using QuantityMeasurment;
+    using QuantityMeasurement;
     using System;
     using System.Collections.Generic;
     using System.Text;
@@ -27,23 +27,16 @@ namespace QuantityMeasurement
         /// <returns> true is both equal else false </returns>
         public bool CompareLength(Measure quantityOne, Measure quantityTwo)
         {
-            if (quantityOne.Unit == quantityTwo.Unit)
+            
+            if (quantityOne.Unit != 0 && quantityTwo.Unit !=0)
             {
-                if (quantityOne.Length == quantityTwo.Length)
-                {
-                    return true;
-                }
-                return false;
+                return (int)quantityOne.Unit * quantityOne.Length == (int)quantityTwo.Unit * quantityTwo.Length;
             }
             else
             {
-                ConvertTo convert = new ConvertTo();
-                if(quantityOne.Unit == "inch" && quantityTwo.Unit == "feet")
-                {
-                    return convert.InchToFeet(quantityOne.Length) == quantityTwo.Length;
-                }
-                return convert.FeetToInch(quantityOne.Length) == quantityTwo.Length;
+                return false;
             }
+            
         } //// end : public bool CompareInchWithFeet(double inch, double feet)
 
         public bool CompareFeetWithInch(double feet, double inch)
