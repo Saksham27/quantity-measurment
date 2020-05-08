@@ -27,7 +27,7 @@ namespace QuantityMeasurement
         /// <param name="quantityOne"> quantity one to compare </param>
         /// <param name="quantityTwo"> quantity two to compare </param>
         /// <returns> true or false </returns>
-        public bool CompareLength(Measure quantityOne, Measure quantityTwo)
+        public bool CompareLength(LengthQuantity quantityOne, LengthQuantity quantityTwo)
         {
             // checking if quantity unit is not 0, if yes return the inner statement
             // if not : return false
@@ -40,6 +40,11 @@ namespace QuantityMeasurement
                 return false;
             }
         } //// end : public bool CompareLength(Measure quantityOne, Measure quantityTwo)
+
+        public bool CompareVolume(VolumeQuantity quantityOne, VolumeQuantity quantityTwo)
+        {
+            return ConvertTo.ConvertVolume(quantityOne.Unit)*quantityOne.Volume == ConvertTo.ConvertVolume(quantityTwo.Unit)*quantityTwo.Volume;
+        }
 
         /// <summary>
         /// method to compare feet with inches

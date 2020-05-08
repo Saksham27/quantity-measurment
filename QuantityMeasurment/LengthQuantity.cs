@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="Measure.cs" company="BridgeLabz Solutions LLP">
+// <copyright file="LengthQuantity.cs" company="BridgeLabz Solutions LLP">
 //     Copyright (c) Company. All rights reserved.
 // </copyright>
 // <author> Saksham Singh </author>
@@ -16,14 +16,14 @@ namespace QuantityMeasurement
     /// Property : <see cref="Length"/>
     /// Method : <see cref="Equals(object)"/>
     /// </summary>
-    public class Measure
+    public class LengthQuantity
     {        
         /// <summary>
-        /// Initializes a new instance of the <see cref="Measure"/> class.
+        /// Initializes a new instance of the <see cref="LengthQuantity"/> class.
         /// </summary>
         /// <param name="unit"> unit of the quantity </param>
         /// <param name="length">length of the quantity </param>
-        public Measure(string unit, double length = 1)
+        public LengthQuantity(string unit, double length = 1)
         {
             Units parsedUnit;
             this.Length = length;
@@ -42,6 +42,8 @@ namespace QuantityMeasurement
         /// Gets or sets variable to store Unit
         /// </summary>
         public Units Unit { get; set; }
+
+       
 
         /// <summary>
         /// override method Equals to check null, reference, type and value equality
@@ -71,7 +73,7 @@ namespace QuantityMeasurement
                 }
 
                 // value equality check
-                return ((Measure)inputObject).Length == this.Length && ((Measure)inputObject).Unit == this.Unit;
+                return ((LengthQuantity)inputObject).Length == this.Length && ((LengthQuantity)inputObject).Unit == this.Unit;
             }
             catch (Exception exception)
             {

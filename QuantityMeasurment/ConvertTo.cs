@@ -34,5 +34,25 @@ namespace QuantityMeasurement
         {
             return feet * 12;
         } //// end  : public double FeetToInch(double feet)
+
+        /// <summary>
+        /// method to convert 
+        /// </summary>
+        /// <param name="inputobj"></param>
+        /// <returns></returns>
+        public static double ConvertVolume(string unit)
+        {
+            switch (unit)
+            {
+                case "ml":
+                    return 1;
+                case "liter":
+                    return 1000;
+                case "gallon":
+                    return 1000 * 3.78;
+                default:
+                    return 1; 
+            }
+        }
     } //// end : class ConvertTo
 } //// end : namespace QuantityMeasurement
