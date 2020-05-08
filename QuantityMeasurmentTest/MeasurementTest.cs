@@ -253,5 +253,16 @@ namespace QuantityMeasurementTest
             Measure inchObject = new Measure("inch", 1);
             Assert.IsFalse(this.compare.CompareLength(yardObject, inchObject));
         } //// end : public void Given1Inch1Yard_ForCompare_shouldReturnTrue()
+
+        /// <summary>
+        /// Test : if given 36 inch and 1 yard object if checking for value equality the should return true
+        /// </summary>
+        [Test]
+        public void Given36Inch1Yard_ForCompare_shouldReturnTrue()
+        {
+            Measure yardObject = new Measure("yard", 1);
+            Measure inchObject = new Measure("inch", 36);
+            Assert.IsTrue(this.compare.CompareLength(yardObject, inchObject));
+        } //// end : public void Given36Inch1Yard_ForCompare_shouldReturnTrue()
     } //// end : public class MeasurmentTest
 } //// end : namespace QuantityMeasurmentTest
