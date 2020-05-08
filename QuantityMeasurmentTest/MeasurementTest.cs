@@ -24,7 +24,7 @@ namespace QuantityMeasurementTest
     /// Test 1.9 : <see cref="GivenInchObject_CheckForType_ShouldReturnBool"/>
     /// Test 1.10 : <see cref="GivenInchObject_CheckEqualityOfValues_ReturnBool"/>
     /// </summary>
-    public class MeasurementTest
+    public class Feet_ForCompare_shouldReturnTrue
     {
         /// <summary>
         /// creating object of compare class
@@ -199,6 +199,21 @@ namespace QuantityMeasurementTest
             Measure inchObject = new Measure("inch", 0);
             Measure feetObject = new Measure("feet", 0);
             Assert.IsTrue(compare.CompareLength(inchObject, feetObject));
-        } //// end : public void Given0Feet0Inch_ForCompare_shouldReturnTrue()o
+        } //// end : public void Given0Feet0Inch_ForCompare_shouldReturnTrue()
+
+
+        /// <summary>
+        /// Test : if given feet and inch object both 1 if checking for value equality the should return true 
+        /// </summary>
+        [Test]
+        public void Given1Feet1Inch_ForCompare_shouldReturnFalse()
+        {
+            Measure inchObject = new Measure("inch", 1);
+            Measure feetObject = new Measure("feet", 1);
+            Assert.IsFalse(compare.CompareLength(inchObject, feetObject));
+        } //// end : public void Given0Feet0Inch_ForCompare_shouldReturnTrue()
+
+
+        
     } //// end : public class MeasurmentTest
 } //// end : namespace QuantityMeasurmentTest
