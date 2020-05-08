@@ -294,7 +294,7 @@ namespace QuantityMeasurementTest
         } //// end : public void Given36Inch1Yard_ForCompare_shouldReturnTrue()
 
         /// <summary>
-        /// Test : if given 2 inch and 5 cm object if checking for value equality the should return true
+        /// Test : if given 2 inch and inch object if adding should return 4 inch
         /// </summary>
         [Test]
         public void Given2Inch2Inch_ForSum_shouldReturn4Inch()
@@ -302,6 +302,17 @@ namespace QuantityMeasurementTest
             Measure inchObject1 = new Measure("inch", 2);
             Measure inchObject2 = new Measure("inch", 2);
             Assert.AreEqual(4, Calculate.AddToInch(inchObject2, inchObject2));
-        } //// end : public void Given36Inch1Yard_ForCompare_shouldReturnTrue()
+        } //// end : public void Given2Inch2Inch_ForSum_shouldReturn4Inch()
+
+        /// <summary>
+        /// Test : if given 1 feet and inch object if adding should return 14 inch
+        /// </summary>
+        [Test]
+        public void Given1feet2Inch_ForSum_shouldReturn14Inch()
+        {
+            Measure feetObject = new Measure("feet", 1);
+            Measure inchObject = new Measure("inch", 2);
+            Assert.AreEqual(14, Calculate.AddToInch(feetObject, inchObject));
+        } //// end : public void Given2Inch2Inch_ForSum_shouldReturn4Inch()
     } //// end : public class MeasurmentTest
 } //// end : namespace QuantityMeasurmentTest
