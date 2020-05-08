@@ -23,6 +23,11 @@ namespace QuantityMeasurement
         /// <summary>
         /// setting base value for feet
         /// </summary>
-        feet = 12
+        feet = 12,
+
+        /// <summary>
+        /// setting base value for yard
+        /// </summary>
+        yard = 36
     } //// end : public enum Units
 } //// end : namespace QuantityMeasurement
