@@ -226,6 +226,17 @@ namespace QuantityMeasurementTest
         } //// end : public void Given0Feet0Inch_ForCompare_shouldReturnTrue()
 
 
-        
+        /// <summary>
+        /// Test : if given feet and inch object both 0 if checking for value equality the should return true 
+        /// </summary>
+        [Test]
+        public void Given1Feet12Inch_ForCompare_shouldReturnTrue()
+        {
+            Measure inchObject = new Measure("inch", 12);
+            Measure feetObject = new Measure("feet", 1);
+            Assert.IsTrue(compare.CompareLength(inchObject, feetObject));
+        } //// end : public void Given0Feet0Inch_ForCompare_shouldReturnTrue()
+
+
     } //// end : public class MeasurmentTest
 } //// end : namespace QuantityMeasurmentTest
