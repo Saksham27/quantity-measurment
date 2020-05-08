@@ -13,21 +13,23 @@ namespace QuantityMeasurement
     /// <summary>
     /// Enumeration constants for Units
     /// </summary>
-    public enum Units
+    public enum Units 
     {
         /// <summary>
         /// setting base value for inch 
         /// </summary>
-        inch = 1,
+        inch = 5,
 
         /// <summary>
         /// setting base value for feet
         /// </summary>
-        feet = 12,
+        feet = 60,
 
         /// <summary>
         /// setting base value for yard
         /// </summary>
-        yard = 36
+        yard = 180,
+
+        cm = 2
     } //// end : public enum Units
 } //// end : namespace QuantityMeasurement
