@@ -33,22 +33,6 @@ namespace QuantityMeasurement
             }
         } //// end  : public static double AddToInch(LengthQuantity quantityOne, LengthQuantity quantityTwo)
 
-        /// <summary>
-        /// method to add two volume quantiities
-        /// </summary>
-        /// <param name="quantityOne"> first value </param>
-        /// <param name="quantityTwo"> second value </param>
-        /// <returns> sum in inches </returns>
-        public static double AddToLiters(VolumeQuantity quantityOne, VolumeQuantity quantityTwo)
-        {
-            if (quantityOne.Unit != null && quantityTwo.Unit != null)
-            {
-                return ( ConvertTo.ConvertVolume(quantityOne.Unit)*quantityOne.Volume + ConvertTo.ConvertVolume(quantityTwo.Unit)*quantityTwo.Volume ) / ConvertTo.ConvertVolume("liter")  ;
-            }
-            else
-            {
-                throw new ArgumentOutOfRangeException();
-            }
-        } //// end  : public static double AddToLiters(VolumeQuantity quantityOne, VolumeQuantity quantityTwo)
+      
     } //// end  : class Calculate
 } //// end : namespace QuantityMeasurment
