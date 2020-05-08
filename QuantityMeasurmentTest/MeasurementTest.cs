@@ -28,6 +28,12 @@ namespace QuantityMeasurementTest
     /// Test 1.15 : <see cref="Given1Inch1Feet_ForCompare_shouldReturnFalse"/>
     /// Test 1.16 : <see cref="Given1Feet12Inch_ForCompare_shouldReturnTrue"/>
     /// Test 1.17 : <see cref="Given12Inch1Feet_ForCompare_shouldReturnTrue"/>
+    /// Test 1.18 : <see cref="Given3Feet1Yard_ForCompare_shouldReturnTrue"/>
+    /// Test 1.19 : <see cref="Given1Feet1Yard_ForCompare_shouldReturnFalse"/>
+    /// Test 1.20 : <see cref="Given1Inch1Yard_ForCompare_shouldReturnFalse"/>
+    /// Test 1.21 : <see cref="Given1Yard36Inch_ForCompare_shouldReturnTrue"/>
+    /// Test 1.22 : <see cref="Given36Inch1Yard_ForCompare_shouldReturnTrue"/>
+    /// 
     /// </summary>
     public class MeasurementTest
     {
@@ -225,7 +231,7 @@ namespace QuantityMeasurementTest
         /// Test : if given 3 feet and 1 yard object if checking for value equality the should return true 
         /// </summary>
         [Test]
-        public void Given1Feet3Yard_ForCompare_shouldReturnTrue()
+        public void Given3Feet1Yard_ForCompare_shouldReturnTrue()
         {
             Measure yardObject = new Measure("yard", 1);
             Measure feetObject = new Measure("feet", 3);
@@ -236,7 +242,7 @@ namespace QuantityMeasurementTest
         /// Test : if given 1 feet and 1 yard object if checking for value equality the should return false
         /// </summary>
         [Test]
-        public void Given1Feet1Yard_ForCompare_shouldReturnTrue()
+        public void Given1Feet1Yard_ForCompare_shouldReturnFalse()
         {
             Measure yardObject = new Measure("yard", 1);
             Measure feetObject = new Measure("feet", 1);
@@ -247,7 +253,7 @@ namespace QuantityMeasurementTest
         /// Test : if given 1 inch and 1 yard object if checking for value equality the should return false
         /// </summary>
         [Test]
-        public void Given1Inch1Yard_ForCompare_shouldReturnTrue()
+        public void Given1Inch1Yard_ForCompare_shouldReturnFalse()
         {
             Measure yardObject = new Measure("yard", 1);
             Measure inchObject = new Measure("inch", 1);
