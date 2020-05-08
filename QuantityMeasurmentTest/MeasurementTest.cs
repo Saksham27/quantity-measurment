@@ -325,5 +325,16 @@ namespace QuantityMeasurementTest
             Measure feetObject2 = new Measure("feet", 1);
             Assert.AreEqual(24, Calculate.AddToInch(feetObject1, feetObject2));
         } //// end : public void Given1Feet1Feet_ForSum_shouldReturn24Inch()
+
+        /// <summary>
+        /// Test : if given 2 inch and 2.5 cm object if adding should return 3 inch
+        /// </summary>
+        [Test]
+        public void Given2Inch2andhalfCm_ForSum_shouldReturn3Inch()
+        {
+            Measure inchObject = new Measure("inch", 2);
+            Measure cmObject = new Measure("cm", 2.5);
+            Assert.AreEqual(3, Calculate.AddToInch(inchObject, cmObject));
+        } //// end : public void Given1Feet1Feet_ForSum_shouldReturn24Inch()
     } //// end : public class MeasurmentTest
 } //// end : namespace QuantityMeasurmentTest
