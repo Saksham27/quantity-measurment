@@ -17,12 +17,12 @@ namespace QuantityMeasurement
     /// Method : <see cref="Equals(object)"/>
     /// </summary>
     public class Measure
-    {
-        
+    {        
         /// <summary>
         /// Initializes a new instance of the <see cref="Measure"/> class.
         /// </summary>
-        /// <param name="inputInch"> input by user </param>
+        /// <param name="unit"> unit of the quantity </param>
+        /// <param name="length">length of the quantity </param>
         public Measure(string unit, double length = 1)
         {
             Units parsedUnit;
@@ -37,6 +37,10 @@ namespace QuantityMeasurement
         /// Gets or sets variable to store inch
         /// </summary>
         public double Length { get; set; }
+
+        /// <summary>
+        /// Gets or sets variable to store Unit
+        /// </summary>
         public Units Unit { get; set; }
 
         /// <summary>
