@@ -40,7 +40,7 @@ namespace QuantityMeasurementTest
             try
             {
                 bool expected = true;
-                bool result = this.compare.CompareInchWithFeet(0, 0);
+                bool result = this.compare.CompareFeetWithInch(0, 0);
                 Assert.AreEqual(expected, result);
             }
             catch (Exception exception)
@@ -55,16 +55,9 @@ namespace QuantityMeasurementTest
         [Test]
         public void GivenInchAndFeet_IfNotEqual_ShouldReturnFalse()
         {
-            try
-            {
                 bool expected = false;
-                bool result = this.compare.CompareInchWithFeet(12, 2);
+                bool result = this.compare.CompareFeetWithInch(12, 2);
                 Assert.AreEqual(expected, result);
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-            }
         } //// end : public void GivenInchAndFeet_IfNotEqual_ShouldReturnFalse()
 
         /// <summary>
@@ -73,15 +66,9 @@ namespace QuantityMeasurementTest
         [Test]
         public void GivenFeetObject_CheckForNull_ShouldReturnBool()
         {
-            try
-            {
-                FeetMeasurement feet = new FeetMeasurement();
+                Measure feet = new Measure("feet");
                 Assert.IsFalse(feet.Equals(null));
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-            }
+
         } //// end : public void GivenFeetObject_CheckForNull_ShouldReturnBool()
 
         /// <summary>
@@ -93,10 +80,10 @@ namespace QuantityMeasurementTest
             try
             {
                 // crating oject for FeetMeasurment class
-                FeetMeasurement feet = new FeetMeasurement();
+                Measure feet = new Measure("feet");
 
                 // creating another object for FeetMeasurment class
-                FeetMeasurement secondFeet = new FeetMeasurement();
+                Measure secondFeet = new Measure("feet");
 
                 Assert.IsFalse(feet.Equals(secondFeet));
             }
@@ -115,7 +102,7 @@ namespace QuantityMeasurementTest
             try
             {
                 // crating oject for FeetMeasurment class
-                FeetMeasurement feet = new FeetMeasurement();
+                Measure feet = new Measure("feet");
 
                 // creating oject for object class
                 object obj = new object();
@@ -137,10 +124,10 @@ namespace QuantityMeasurementTest
             try
             {
                 // create object for Feet class
-                FeetMeasurement feet = new FeetMeasurement();
+                Measure feet = new Measure("feet");
 
                 // set values in feet object
-                feet.Feet = 20.5;
+                feet.Length = 20.5;
                 Assert.IsTrue(feet.Equals(feet));
             }
             catch (Exception exception)
@@ -155,15 +142,8 @@ namespace QuantityMeasurementTest
         [Test]
         public void GivenInchObject_CheckForNull_ShouldReturnBool()
         {
-            try
-            {
-                InchMeasurement inch = new InchMeasurement();
+                Measure inch = new Measure("inch");
                 Assert.IsFalse(inch.Equals(null));
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-            }
         } //// end : public void GivenInchObject_CheckForNull_ShouldReturnBool()
 
         /// <summary>
@@ -172,20 +152,13 @@ namespace QuantityMeasurementTest
         [Test]
         public void GivenInchObject_CheckForReference_ShouldReturnBool()
         {
-            try
-            {
                 // crating oject for FeetMeasurment class
-                InchMeasurement inch = new InchMeasurement();
+                Measure inch = new Measure("inch");
 
                 // creating another object for FeetMeasurment class
-                InchMeasurement secondInch = new InchMeasurement();
+                Measure secondInch = new Measure("inch");
 
                 Assert.IsFalse(inch.Equals(secondInch));
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-            }
         } //// end : public void GivenInchObject_CheckForReference_ShouldReturnBool()
 
         /// <summary>
@@ -194,20 +167,13 @@ namespace QuantityMeasurementTest
         [Test]
         public void GivenInchObject_CheckForType_ShouldReturnBool()
         {
-            try
-            {
                 // crating oject for FeetMeasurment class
-                InchMeasurement inch = new InchMeasurement();
+                Measure inch = new Measure("inch");
 
                 // creating oject for object class
                 object obj = new object();
 
                 Assert.IsFalse(inch.Equals(obj));
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-            }
         } //// end : public void GivenInchObject_CheckForType_ShouldReturnBool()
 
         /// <summary>
@@ -216,19 +182,23 @@ namespace QuantityMeasurementTest
         [Test]
         public void GivenInchObject_CheckEqualityOfValues_ReturnBool()
         {
-            try
-            {
                 // create object for Feet class
-                InchMeasurement inch = new InchMeasurement();
+                Measure inch = new Measure("inch");
 
                 // set values in feet object
-                inch.Inch = 20.5;
+                inch.Length = 20.5;
                 Assert.IsTrue(inch.Equals(inch));
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-            }
         } //// end : public void GivenFeetObject_CheckEqualityOfValues_ReturnBool()
+
+        /// <summary>
+        /// Test : if given feet and inch object both 0 if checking for value equality the should return true 
+        /// </summary>
+        [Test]
+        public void Given0Feet0Inch_ForCompare_shouldReturnTrue()
+        {
+            Measure inchObject = new Measure("inch", 0);
+            Measure feetObject = new Measure("feet", 0);
+            Assert.IsTrue(compare.CompareLength(inchObject, feetObject));
+        }
     } //// end : public class MeasurmentTest
 } //// end : namespace QuantityMeasurmentTest

@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="InchMeasurement.cs" company="BridgeLabz Solutions LLP">
+// <copyright file="Measure.cs" company="BridgeLabz Solutions LLP">
 //     Copyright (c) Company. All rights reserved.
 // </copyright>
 // <author> Saksham Singh </author>
@@ -13,24 +13,29 @@ namespace QuantityMeasurement
     /// <summary>
     /// class containing feet measurement checks
     /// constructor : <see cref="FeetMeasurement.FeetMeasurement(double)"/>
-    /// Property : <see cref="Inch"/>
+    /// Property : <see cref="Length"/>
     /// Method : <see cref="Equals(object)"/>
     /// </summary>
-    public class InchMeasurement
+    public class Measure
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InchMeasurement"/> class.
+        /// Initializes a new instance of the <see cref="Measure"/> class.
         /// </summary>
         /// <param name="inputInch"> input by user </param>
-        public InchMeasurement(double inputInch = 1)
+        public Measure(string unit, double length = 1)
         {
-            this.Inch = inputInch;
+            this.Length = length;
+            if(unit.Trim().ToLower() == "inch" || unit.Trim().ToLower() == "feet")
+            {
+                this.Unit = unit;
+            }   
         } //// end : public FeetMeasurement(double inputFeet = 1)
 
         /// <summary>
         /// Gets or sets variable to store inch
         /// </summary>
-        public double Inch { get; set; }
+        public double Length { get; set; }
+        public string Unit { get; set; }
 
         /// <summary>
         /// override method Equals to check null, reference, type and value equality
@@ -60,7 +65,7 @@ namespace QuantityMeasurement
                 }
 
                 // value equality check
-                return ((InchMeasurement)inputObject).Inch == this.Inch;
+                return ((Measure)inputObject).Length == this.Length && ((Measure)inputObject).Unit == this.Unit;
             }
             catch (Exception exception)
             {
