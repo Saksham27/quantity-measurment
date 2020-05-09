@@ -4,7 +4,7 @@
 // </copyright>
 // <author> Saksham Singh </author>
 //-----------------------------------------------------------------------
-namespace QuantityMeasurementTest
+namespace QuantityMeasurement
 {
     using System;
     using NUnit.Framework;
@@ -410,6 +410,17 @@ namespace QuantityMeasurementTest
             WeightQuantity tonObject = new WeightQuantity("ton", 1);
             WeightQuantity gramObject = new WeightQuantity("gram", 1000);
             Assert.AreEqual(1001, Calculate.AddToKg(tonObject, gramObject));
+        } //// end : public void Given1TonAnd1000Kg_ForCompare_shouldReturnTrue()
+
+        /// <summary>
+        /// Test : if given 1 ton and 1000 kg object if checking for value equality the should return true
+        /// </summary>
+        [Test]
+        public void Given212FAnd100C_ForCompare_shouldReturnTrue()
+        {
+            TempratureQuantity fahrenheitObject = new TempratureQuantity("F", 212);
+            TempratureQuantity celciusObject = new TempratureQuantity("C", 100);
+            Assert.IsTrue(this.compare.CompareTemprature(fahrenheitObject, celciusObject));
         } //// end : public void Given1TonAnd1000Kg_ForCompare_shouldReturnTrue()
 
     } //// end : public class MeasurmentTest
