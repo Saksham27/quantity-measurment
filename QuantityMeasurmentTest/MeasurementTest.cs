@@ -42,6 +42,7 @@ namespace QuantityMeasurementTest
     /// Test 1.29 : <see cref="Given1GallonandLiter_ForCompare_shouldReturnTrue"/>
     /// Test 1.30 : <see cref="GivenGallonAndLitre_ForSum_shouldReturnSumInLitre"/>
     /// Test 1.31 : <see cref="Given1KgAnd1000Grams_ForCompare_shouldReturnTrue"/>
+    /// Test 1.32 : <see cref="Given1TonAnd1000Kg_ForCompare_shouldReturnTrue"/>
     /// </summary>
     public class MeasurementTest
     {
@@ -388,6 +389,17 @@ namespace QuantityMeasurementTest
             WeightQuantity gramObject = new WeightQuantity("gram", 1000);
             Assert.IsTrue(this.compare.CompareWeight(kgObject, gramObject));
         } //// end : public void Given1KgAnd1000Grams_ForCompare_shouldReturnTrue()
+
+        /// <summary>
+        /// Test : if given 1 ton and 1000 kg object if checking for value equality the should return true
+        /// </summary>
+        [Test]
+        public void Given1TonAnd1000Kg_ForCompare_shouldReturnTrue()
+        {
+            WeightQuantity tonObject = new WeightQuantity("ton", 1);
+            WeightQuantity kgObject = new WeightQuantity("kg", 1000);
+            Assert.IsTrue(this.compare.CompareWeight(tonObject, kgObject));
+        } //// end : public void Given1TonAnd1000Kg_ForCompare_shouldReturnTrue()
 
     } //// end : public class MeasurmentTest
 } //// end : namespace QuantityMeasurmentTest
