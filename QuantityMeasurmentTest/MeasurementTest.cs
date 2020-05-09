@@ -401,5 +401,16 @@ namespace QuantityMeasurementTest
             Assert.IsTrue(this.compare.CompareWeight(tonObject, kgObject));
         } //// end : public void Given1TonAnd1000Kg_ForCompare_shouldReturnTrue()
 
+        /// <summary>
+        /// Test : if given 1 ton and 1000 gram object if adding for should return 1001 kg
+        /// </summary>
+        [Test]
+        public void Given1TonAnd1000Kg_ForSum_shouldReturn1001Kg()
+        {
+            WeightQuantity tonObject = new WeightQuantity("ton", 1);
+            WeightQuantity gramObject = new WeightQuantity("gram", 1000);
+            Assert.AreEqual(1001, Calculate.AddToKg(tonObject, gramObject));
+        } //// end : public void Given1TonAnd1000Kg_ForCompare_shouldReturnTrue()
+
     } //// end : public class MeasurmentTest
 } //// end : namespace QuantityMeasurmentTest
