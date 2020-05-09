@@ -44,6 +44,11 @@ namespace QuantityMeasurement
         public bool CompareVolume(VolumeQuantity quantityOne, VolumeQuantity quantityTwo)
         {
             return ConvertTo.ConvertVolume(quantityOne.Unit)*quantityOne.Volume == ConvertTo.ConvertVolume(quantityTwo.Unit)*quantityTwo.Volume;
+        } //// end : public bool CompareVolume(VolumeQuantity quantityOne, VolumeQuantity quantityTwo)
+
+        public bool CompareWeight(WeightQuantity quantityOne, WeightQuantity quantityTwo)
+        {
+            return (int)quantityOne.Unit * quantityOne.Weight == (int)quantityTwo.Unit * quantityTwo.Weight;
         }
 
         /// <summary>

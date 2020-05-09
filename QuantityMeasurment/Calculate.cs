@@ -25,7 +25,7 @@ namespace QuantityMeasurement
         {
             if (quantityOne.Unit != 0 && quantityTwo.Unit != 0)
             {
-                return (double)quantityOne.Unit/(double)Units.inch * quantityOne.Length + (double)quantityTwo.Unit/(double)Units.inch * quantityTwo.Length;
+                return (double)quantityOne.Unit/(double)LengthUnits.inch * quantityOne.Length + (double)quantityTwo.Unit/(double)LengthUnits.inch * quantityTwo.Length;
             }
             else
             {

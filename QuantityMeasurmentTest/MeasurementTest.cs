@@ -33,7 +33,15 @@ namespace QuantityMeasurementTest
     /// Test 1.20 : <see cref="Given1Inch1Yard_ForCompare_shouldReturnFalse"/>
     /// Test 1.21 : <see cref="Given1Yard36Inch_ForCompare_shouldReturnTrue"/>
     /// Test 1.22 : <see cref="Given36Inch1Yard_ForCompare_shouldReturnTrue"/>
-    /// 
+    /// Test 1.23 : <see cref="Given2Inch5Cm_ForCompare_shouldReturnTrue"/>
+    /// Test 1.24 : <see cref="Given2Inch2Inch_ForSum_shouldReturn4Inch"/>
+    /// Test 1.25 : <see cref="Given2Inch2andhalfCm_ForSum_shouldReturn3Inch"/>
+    /// Test 1.26 : <see cref="Given1Feet1Feet_ForSum_shouldReturn24Inch"/>
+    /// Test 1.27 : <see cref="Given1feet2Inch_ForSum_shouldReturn14Inch"/>
+    /// Test 1.28 : <see cref="Given1Literand1000Ml_ForCompare_shouldReturnTrue"/>
+    /// Test 1.29 : <see cref="Given1GallonandLiter_ForCompare_shouldReturnTrue"/>
+    /// Test 1.30 : <see cref="GivenGallonAndLitre_ForSum_shouldReturnSumInLitre"/>
+    /// Test 1.31 : <see cref="Given1KgAnd1000Grams_ForCompare_shouldReturnTrue"/>
     /// </summary>
     public class MeasurementTest
     {
@@ -369,6 +377,8 @@ namespace QuantityMeasurementTest
             VolumeQuantity literObject = new VolumeQuantity("liter", 3.78);
             Assert.AreEqual(7.57,Math.Round(Calculate.AddToLiters(gallonObject, literObject)),2);
         } //// end : public void GivenGallonAndLitre_ForSum_shouldReturnSumInLitre()
+
+        
 
     } //// end : public class MeasurmentTest
 } //// end : namespace QuantityMeasurmentTest

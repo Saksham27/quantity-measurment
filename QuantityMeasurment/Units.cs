@@ -11,9 +11,9 @@ namespace QuantityMeasurement
     using System.Text;
 
     /// <summary>
-    /// Enumeration constants for Units
+    /// Enumeration constants for Length Units
     /// </summary>
-    public enum Units 
+    public enum LengthUnits 
     {
         /// <summary>
         /// setting base value for inch 
@@ -32,4 +32,25 @@ namespace QuantityMeasurement
 
         cm = 2
     } //// end : public enum Units
+
+    /// <summary>
+    /// Enumeration constants for Weight Units
+    /// </summary>
+    public enum WeightUnits
+    {
+        /// <summary>
+        /// setting base value for gram
+        /// </summary>
+        gram = 1,
+
+        /// <summary>
+        /// setting base value for kg
+        /// </summary>
+        kg = 1000,
+
+        /// <summary>
+        /// setting base value for ton
+        /// </summary>
+        ton = 1000000
+    }
 } //// end : namespace QuantityMeasurement

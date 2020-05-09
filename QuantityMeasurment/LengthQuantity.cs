@@ -25,7 +25,7 @@ namespace QuantityMeasurement
         /// <param name="length">length of the quantity </param>
         public LengthQuantity(string unit, double length = 1)
         {
-            Units parsedUnit;
+            LengthUnits parsedUnit;
             this.Length = length;
             if (Enum.TryParse(unit.Trim().ToLower(), true, out parsedUnit))
             {
@@ -34,16 +34,14 @@ namespace QuantityMeasurement
         } //// end : public FeetMeasurement(double inputFeet = 1)
 
         /// <summary>
-        /// Gets or sets variable to store inch
+        /// Gets or sets variable to store Length
         /// </summary>
         public double Length { get; set; }
 
         /// <summary>
         /// Gets or sets variable to store Unit
         /// </summary>
-        public Units Unit { get; set; }
-
-       
+        public LengthUnits Unit { get; set; }
 
         /// <summary>
         /// override method Equals to check null, reference, type and value equality
