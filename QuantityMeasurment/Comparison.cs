@@ -48,7 +48,38 @@ namespace QuantityMeasurement
 
         public bool CompareWeight(WeightQuantity quantityOne, WeightQuantity quantityTwo)
         {
-            return (int)quantityOne.Unit * quantityOne.Weight == (int)quantityTwo.Unit * quantityTwo.Weight;
+            if (quantityOne.Unit != 0 && quantityTwo.Unit != 0)
+            {
+                return (int)quantityOne.Unit * quantityOne.Weight == (int)quantityTwo.Unit * quantityTwo.Weight;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool CompareTemprature(TempratureQuantity quantityOne, TempratureQuantity quantityTwo)
+        {
+            if (quantityOne.Unit != null && quantityTwo.Unit != null)
+            {
+                double celcius, fahrenheit;
+                if (quantityOne.Unit == "C")
+                {
+                    celcius = quantityOne.Temp;
+                    fahrenheit = quantityTwo.Temp;
+                }
+                else
+                {
+                    celcius = quantityTwo.Temp;
+                    fahrenheit = quantityOne.Temp;
+                }
+
+                return celcius * 9 / 5 + 32 == fahrenheit;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /// <summary>
