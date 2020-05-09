@@ -50,5 +50,23 @@ namespace QuantityMeasurement
                 throw new ArgumentOutOfRangeException();
             }
         } //// end  : public static double AddToLiters(VolumeQuantity quantityOne, VolumeQuantity quantityTwo)
+
+        /// <summary>
+        /// method to add two Weight quantiities
+        /// </summary>
+        /// <param name="quantityOne"> first value </param>
+        /// <param name="quantityTwo"> second value </param>
+        /// <returns> sum in kg </returns>
+        public static double AddToKg(WeightQuantity quantityOne, WeightQuantity quantityTwo)
+        {
+            if (quantityOne.Unit != 0 && quantityTwo.Unit != 0)
+            {
+                return (double)quantityOne.Unit / (double)WeightUnits.kg * quantityOne.Weight + (double)quantityTwo.Unit / (double)WeightUnits.kg * quantityTwo.Weight;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+        } //// end  : public static double AddToKg(WeightQuantity quantityOne, WeightQuantity quantityTwo)
     } //// end  : class Calculate
 } //// end : namespace QuantityMeasurment
