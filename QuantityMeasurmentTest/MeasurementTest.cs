@@ -378,7 +378,16 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(7.57,Math.Round(Calculate.AddToLiters(gallonObject, literObject)),2);
         } //// end : public void GivenGallonAndLitre_ForSum_shouldReturnSumInLitre()
 
-        
+        /// <summary>
+        /// Test : if given 1 kg and 1000 grams object if checking for value equality the should return true
+        /// </summary>
+        [Test]
+        public void Given1KgAnd1000Grams_ForCompare_shouldReturnTrue()
+        {
+            WeightQuantity kgObject = new WeightQuantity("kg", 1);
+            WeightQuantity gramObject = new WeightQuantity("gram", 1000);
+            Assert.IsTrue(this.compare.CompareWeight(kgObject, gramObject));
+        } //// end : public void Given1KgAnd1000Grams_ForCompare_shouldReturnTrue()
 
     } //// end : public class MeasurmentTest
 } //// end : namespace QuantityMeasurmentTest
