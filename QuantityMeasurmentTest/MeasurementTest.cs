@@ -43,6 +43,7 @@ namespace QuantityMeasurement
     /// Test 1.30 : <see cref="GivenGallonAndLitre_ForSum_shouldReturnSumInLitre"/>
     /// Test 1.31 : <see cref="Given1KgAnd1000Grams_ForCompare_shouldReturnTrue"/>
     /// Test 1.32 : <see cref="Given1TonAnd1000Kg_ForCompare_shouldReturnTrue"/>
+    /// Test 1.33 : <see cref="Given212FAnd100C_ForCompare_shouldReturnTrue"/>
     /// </summary>
     public class MeasurementTest
     {
@@ -342,8 +343,8 @@ namespace QuantityMeasurement
         public void Given2Inch2andhalfCm_ForSum_shouldReturn3Inch()
         {
             LengthQuantity inchObject = new LengthQuantity("inch", 2);
-            LengthQuantity cmObject = new LengthQuantity("cm", 2.5);
-            Assert.AreEqual(3, Calculate.AddToInch(inchObject, cmObject));
+            LengthQuantity centimetermObject = new LengthQuantity("cm", 2.5);
+            Assert.AreEqual(3, Calculate.AddToInch(inchObject, centimetermObject));
         } //// end : public void Given1Feet1Feet_ForSum_shouldReturn24Inch()
 
         /// <summary>
@@ -352,20 +353,20 @@ namespace QuantityMeasurement
         [Test]
         public void Given1GallonandLiter_ForCompare_shouldReturnTrue()
         {
-            VolumeQuantity gallonObject = new VolumeQuantity("gallon",1);
-            VolumeQuantity literObject = new VolumeQuantity("liter",3.78);
+            VolumeQuantity gallonObject = new VolumeQuantity("gallon", 1);
+            VolumeQuantity literObject = new VolumeQuantity("liter", 3.78);
             Assert.IsTrue(this.compare.CompareVolume(gallonObject, literObject));
         } //// end : public void Given1GallonandLiter_ForCompare_shouldReturnTrue()
 
         /// <summary>
-        /// Test : if given 1 litre and 1000 ml object if comparing should return true
+        /// Test : if given 1 liter and 1000 ml object if comparing should return true
         /// </summary>
         [Test]
         public void Given1Literand1000Ml_ForCompare_shouldReturnTrue()
         {
-            VolumeQuantity mlObject = new VolumeQuantity("ml", 1000);
+            VolumeQuantity milileterObject = new VolumeQuantity("ml", 1000);
             VolumeQuantity literObject = new VolumeQuantity("liter", 1);
-            Assert.IsTrue(this.compare.CompareVolume(mlObject, literObject));
+            Assert.IsTrue(this.compare.CompareVolume(milileterObject, literObject));
         } //// end : public void Given1Literand1000Ml_ForCompare_shouldReturnTrue()
 
         /// <summary>
@@ -376,7 +377,7 @@ namespace QuantityMeasurement
         {
             VolumeQuantity gallonObject = new VolumeQuantity("gallon", 1);
             VolumeQuantity literObject = new VolumeQuantity("liter", 3.78);
-            Assert.AreEqual(7.57,Math.Round(Calculate.AddToLiters(gallonObject, literObject)),2);
+            Assert.AreEqual(7.57, Math.Round(Calculate.AddToLiters(gallonObject, literObject)), 2);
         } //// end : public void GivenGallonAndLitre_ForSum_shouldReturnSumInLitre()
 
         /// <summary>
@@ -385,9 +386,9 @@ namespace QuantityMeasurement
         [Test]
         public void Given1KgAnd1000Grams_ForCompare_shouldReturnTrue()
         {
-            WeightQuantity kgObject = new WeightQuantity("kg", 1);
+            WeightQuantity kilogramObject = new WeightQuantity("kg", 1);
             WeightQuantity gramObject = new WeightQuantity("gram", 1000);
-            Assert.IsTrue(this.compare.CompareWeight(kgObject, gramObject));
+            Assert.IsTrue(this.compare.CompareWeight(kilogramObject, gramObject));
         } //// end : public void Given1KgAnd1000Grams_ForCompare_shouldReturnTrue()
 
         /// <summary>
@@ -397,8 +398,8 @@ namespace QuantityMeasurement
         public void Given1TonAnd1000Kg_ForCompare_shouldReturnTrue()
         {
             WeightQuantity tonObject = new WeightQuantity("ton", 1);
-            WeightQuantity kgObject = new WeightQuantity("kg", 1000);
-            Assert.IsTrue(this.compare.CompareWeight(tonObject, kgObject));
+            WeightQuantity kilogramObject = new WeightQuantity("kg", 1000);
+            Assert.IsTrue(this.compare.CompareWeight(tonObject, kilogramObject));
         } //// end : public void Given1TonAnd1000Kg_ForCompare_shouldReturnTrue()
 
         /// <summary>
@@ -413,15 +414,14 @@ namespace QuantityMeasurement
         } //// end : public void Given1TonAnd1000Kg_ForCompare_shouldReturnTrue()
 
         /// <summary>
-        /// Test : if given 1 ton and 1000 kg object if checking for value equality the should return true
+        /// Test : if given 212 fahrenheit and 100 C object if checking for value equality the should return true
         /// </summary>
         [Test]
         public void Given212FAnd100C_ForCompare_shouldReturnTrue()
         {
-            TempratureQuantity fahrenheitObject = new TempratureQuantity("F", 212);
-            TempratureQuantity celciusObject = new TempratureQuantity("C", 100);
+            TemperatureQuantity fahrenheitObject = new TemperatureQuantity("F", 212);
+            TemperatureQuantity celciusObject = new TemperatureQuantity("C", 100);
             Assert.IsTrue(this.compare.CompareTemprature(fahrenheitObject, celciusObject));
         } //// end : public void Given1TonAnd1000Kg_ForCompare_shouldReturnTrue()
-
     } //// end : public class MeasurmentTest
 } //// end : namespace QuantityMeasurmentTest

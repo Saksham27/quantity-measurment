@@ -12,7 +12,11 @@ namespace QuantityMeasurement
 
     /// <summary>
     /// comparison class containing different comparisons
-    /// Method : <see cref="CompareLength(double, double)"/>
+    /// Method : <see cref="CompareLength(LengthQuantity, LengthQuantity)"/>
+    /// Method : <see cref="CompareVolume(VolumeQuantity, VolumeQuantity)"/>
+    /// Method : <see cref="CompareWeight(WeightQuantity, WeightQuantity)"/>
+    /// Method : <see cref="CompareTemprature(TemperatureQuantity, TemperatureQuantity)"/>
+    /// Method : <see cref="CompareFeetWithInch(double, double)"/>
     /// </summary>
     public class Comparison
     {
@@ -22,65 +26,114 @@ namespace QuantityMeasurement
         private ConvertTo convert = new ConvertTo();
 
         /// <summary>
-        /// method to compare inches with feet
+        /// method to compare two length quantities
         /// </summary>
         /// <param name="quantityOne"> quantity one to compare </param>
         /// <param name="quantityTwo"> quantity two to compare </param>
         /// <returns> true or false </returns>
         public bool CompareLength(LengthQuantity quantityOne, LengthQuantity quantityTwo)
         {
-            // checking if quantity unit is not 0, if yes return the inner statement
-            // if not : return false
-            if (quantityOne.Unit != 0 && quantityTwo.Unit != 0)
+            try
             {
-                return (int)quantityOne.Unit * quantityOne.Length == (int)quantityTwo.Unit * quantityTwo.Length;
-            }
-            else
-            {
-                return false;
-            }
-        } //// end : public bool CompareLength(Measure quantityOne, Measure quantityTwo)
-
-        public bool CompareVolume(VolumeQuantity quantityOne, VolumeQuantity quantityTwo)
-        {
-            return ConvertTo.ConvertVolume(quantityOne.Unit)*quantityOne.Volume == ConvertTo.ConvertVolume(quantityTwo.Unit)*quantityTwo.Volume;
-        } //// end : public bool CompareVolume(VolumeQuantity quantityOne, VolumeQuantity quantityTwo)
-
-        public bool CompareWeight(WeightQuantity quantityOne, WeightQuantity quantityTwo)
-        {
-            if (quantityOne.Unit != 0 && quantityTwo.Unit != 0)
-            {
-                return (int)quantityOne.Unit * quantityOne.Weight == (int)quantityTwo.Unit * quantityTwo.Weight;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool CompareTemprature(TempratureQuantity quantityOne, TempratureQuantity quantityTwo)
-        {
-            if (quantityOne.Unit != null && quantityTwo.Unit != null)
-            {
-                double celcius, fahrenheit;
-                if (quantityOne.Unit == "C")
+                // checking if quantity unit is not 0, if yes return the inner statement
+                // if not : return false
+                if (quantityOne.Unit != 0 && quantityTwo.Unit != 0)
                 {
-                    celcius = quantityOne.Temp;
-                    fahrenheit = quantityTwo.Temp;
+                    return (int)quantityOne.Unit * quantityOne.Length == (int)quantityTwo.Unit * quantityTwo.Length;
                 }
                 else
                 {
-                    celcius = quantityTwo.Temp;
-                    fahrenheit = quantityOne.Temp;
+                    return false;
                 }
-
-                return celcius * 9 / 5 + 32 == fahrenheit;
             }
-            else
+            catch (Exception exception)
             {
-                return false;
+                Console.WriteLine(exception.Message);
+                throw;
             }
-        }
+        } //// end : public bool CompareLength(Measure quantityOne, Measure quantityTwo)
+
+        /// <summary>
+        /// method to compare two volume quantities
+        /// </summary>
+        /// <param name="quantityOne"> quantity one to compare </param>
+        /// <param name="quantityTwo"> quantity two to compare </param>
+        /// <returns> true or false </returns>
+        public bool CompareVolume(VolumeQuantity quantityOne, VolumeQuantity quantityTwo)
+        {
+            return ConvertTo.ConvertVolume(quantityOne.Unit) * quantityOne.Volume == ConvertTo.ConvertVolume(quantityTwo.Unit) * quantityTwo.Volume;
+        } //// end : public bool CompareVolume(VolumeQuantity quantityOne, VolumeQuantity quantityTwo)
+
+        /// <summary>
+        /// method to compare two volume quantities
+        /// </summary>
+        /// <param name="quantityOne"> quantity one to compare </param>
+        /// <param name="quantityTwo"> quantity two to compare </param>
+        /// <returns> true or false </returns>
+        public bool CompareWeight(WeightQuantity quantityOne, WeightQuantity quantityTwo)
+        {
+            try
+            {
+                // checking if quantity unit is not 0, if yes return the inner statement
+                // if not : return false
+                if (quantityOne.Unit != 0 && quantityTwo.Unit != 0)
+                {
+                    return (int)quantityOne.Unit * quantityOne.Weight == (int)quantityTwo.Unit * quantityTwo.Weight;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+                throw;
+            }
+        } //// end : public bool CompareWeight(WeightQuantity quantityOne, WeightQuantity quantityTwo)
+
+        /// <summary>
+        /// method to compare two volume quantities
+        /// </summary>
+        /// <param name="quantityOne"> quantity one to compare </param>
+        /// <param name="quantityTwo"> quantity two to compare </param>
+        /// <returns> true or false </returns>
+        public bool CompareTemprature(TemperatureQuantity quantityOne, TemperatureQuantity quantityTwo)
+        {
+            try
+            {
+                // checking if quantity unit is not null
+                // if not : return false
+                if (quantityOne.Unit != null && quantityTwo.Unit != null)
+                {
+                    double celcius, fahrenheit;
+
+                    // checking if quantity one is celcius, set quantity one to celcius and two to fahrenhiet
+                    // if not : do reverse
+                    if (quantityOne.Unit == "C")
+                    {
+                        celcius = quantityOne.Temp;
+                        fahrenheit = quantityTwo.Temp;
+                    }
+                    else
+                    {
+                        celcius = quantityTwo.Temp;
+                        fahrenheit = quantityOne.Temp;
+                    }
+
+                    return (celcius * 9 / 5) + 32 == fahrenheit;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+                throw;
+            }
+        } //// end :  public bool CompareTemprature(TempratureQuantity quantityOne, TempratureQuantity quantityTwo)
 
         /// <summary>
         /// method to compare feet with inches
@@ -90,14 +143,22 @@ namespace QuantityMeasurement
         /// <returns> true or false </returns>
         public bool CompareFeetWithInch(double feet, double inch)
         {
-            // cheking if inch is equal to feet, return true
-            // if not : return false
-            if (this.convert.FeetToInch(feet) == inch)
+            try
             {
-                return true;
-            }
+                // cheking if inch is equal to feet, return true
+                // if not : return false
+                if (this.convert.FeetToInch(feet) == inch)
+                {
+                    return true;
+                }
 
-            return false;
+                return false;
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+                throw;
+            }
         } //// end : public bool CompareInchWithFeet(double inch, double feet)
     } //// end : class Comparison
 } //// end : namespace QuantityMeasurment

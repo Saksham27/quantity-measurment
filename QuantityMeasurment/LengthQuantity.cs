@@ -11,9 +11,10 @@ namespace QuantityMeasurement
     using System.Text;
 
     /// <summary>
-    /// class containing feet measurement checks
-    /// constructor : <see cref="FeetMeasurement.FeetMeasurement(double)"/>
+    /// class containing length quantity properties and methods
+    /// constructor : <see cref="LengthQuantity.LengthQuantity(string, double)"/>
     /// Property : <see cref="Length"/>
+    /// Property : <see cref="Unit"/>
     /// Method : <see cref="Equals(object)"/>
     /// </summary>
     public class LengthQuantity

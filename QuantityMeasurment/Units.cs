@@ -30,6 +30,9 @@ namespace QuantityMeasurement
         /// </summary>
         yard = 180,
 
+        /// <summary>
+        /// setting base value for cm
+        /// </summary>
         cm = 2
     } //// end : public enum Units
 
@@ -52,6 +55,5 @@ namespace QuantityMeasurement
         /// setting base value for ton
         /// </summary>
         ton = 1000000
-    }
-
+    } //// end : public enum WeightUnits
 } //// end : namespace QuantityMeasurement
